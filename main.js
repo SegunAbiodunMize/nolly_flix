@@ -1,10 +1,18 @@
-var btnvar1 = document.getElementById('btnh1');
-        function Toggle1(){
-            if (btnvar1.style.color =="red"){
-                btnvar1.style.color ="grey"
-            }
-            else{
-                btnvar1.style.color ="red"
-            }
+const likeBtn = document.querySelector(".like__btn");
+let likeIcon = document.querySelector("#icon"),
+  count = document.querySelector("#count");
 
-        }
+let clicked = false;
+
+
+likeBtn.addEventListener("click", () => {
+  if (!clicked) {
+    clicked = true;
+    likeIcon.innerHTML = `<i class="fas fa-thumbs-up"></i>`;
+    count.textContent++;
+  } else {
+    clicked = false;
+    likeIcon.innerHTML = `<i class="far fa-thumbs-up"></i>`;
+    count.textContent--;
+  }
+});
